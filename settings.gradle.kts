@@ -24,7 +24,6 @@ include(":app")
 
 include(":app-strings")
 
-include(":feature:treeview")
 include(":feature:editor")
 include(":feature:modeling")
 include(":feature:xmlviewer")
@@ -36,6 +35,7 @@ include(":core:utils")
 include(":core:antlr4:java")
 include(":core:settings")
 include(":core:database")
+include(":core:filetree")
 
 include(":robok-easy-ui:antlr4")
 include(":robok-easy-ui:gui")

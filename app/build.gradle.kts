@@ -132,12 +132,11 @@ dependencies {
   implementation(libs.about.libraries.compose.m3)
   
   implementation(libs.insetter)
-  
+
   // projects
-  
+
   implementation(projects.appStrings)
-  
-  implementation(projects.feature.treeview)
+
   implementation(projects.feature.editor)
   implementation(projects.feature.modeling)
   implementation(projects.feature.xmlviewer)
@@ -148,7 +147,8 @@ dependencies {
   implementation(projects.core.components)
   implementation(projects.core.utils)
   implementation(projects.core.antlr4.java)
-  
+  implementation(projects.core.filetree)
+
   implementation(projects.robokEasyUi.gui)
 }
 

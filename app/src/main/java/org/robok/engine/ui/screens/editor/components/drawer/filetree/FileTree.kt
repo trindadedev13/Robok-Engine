@@ -28,12 +28,12 @@ import androidx.compose.ui.res.*
 import androidx.compose.ui.unit.*
 import androidx.compose.ui.viewinterop.AndroidView
 import java.io.File
-import org.robok.engine.feature.treeview.interfaces.FileClickListener
-import org.robok.engine.feature.treeview.interfaces.FileObject
-import org.robok.engine.feature.treeview.model.Node
-import org.robok.engine.feature.treeview.provider.DefaultFileIconProvider
-import org.robok.engine.feature.treeview.provider.FileWrapper
-import org.robok.engine.feature.treeview.widget.FileTree as FileTreeView
+import org.robok.engine.core.filetree.interfaces.FileClickListener
+import org.robok.engine.core.filetree.interfaces.FileObject
+import org.robok.engine.core.filetree.model.Node
+import org.robok.engine.core.filetree.provider.DefaultFileIconProvider
+import org.robok.engine.core.filetree.provider.FileWrapper
+import org.robok.engine.core.filetree.widget.FileTree as FileTreeView
 
 @Composable
 fun FileTree(
