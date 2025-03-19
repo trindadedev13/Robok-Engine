@@ -1,4 +1,4 @@
-package org.robok.engine.di
+package org.robok.engine.feature.editor.language
 
 /*
  *  This file is part of Robok © 2024.
@@ -17,6 +17,18 @@ package org.robok.engine.di
  *   along with Robok.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import org.koin.dsl.module
+import org.robok.engine.feature.editor.EditorListener
 
-val GeneralModule = module { }
+/*
+ * A Interface base for Languages.
+ * @extends Extends a Sora Editor Language.
+ * @author Aquiles Trindade (trindadedev).
+ */
+
+interface Language : io.github.rosemoe.sora.lang.Language {
+  /*
+   * Set the listener of editor
+   * @link EditorListener.kt
+   */
+  fun setEditorListener(editorListener: EditorListener)
+}

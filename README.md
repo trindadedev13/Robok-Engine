@@ -3,7 +3,7 @@
   
   
   <h1>🚀 Robok Engine</h1>
-  <p>Revolutionary engine for creating 3D games.</p>
+  <p>Revolutionary engine for creating 2D games.</p>
   <a href="https://github.com/Robok-Engine/Robok-Engine/issues">
     <img src="https://m3-markdown-badges.vercel.app/issues/1/2/Robok-Engine/Robok-Engine" alt="Issues">
   </a>
@@ -82,6 +82,7 @@ Help translate Robok-Engine! Visit [Weblate](https://hosted.weblate.org/engage/r
 - [X] Code Editor
 - [X] Project Creation
 - [X] File Tree
+- [ ] C++
 - [ ] Full 3D Modeling
 - [ ] Classes to simplify development
 - [ ] AI System
