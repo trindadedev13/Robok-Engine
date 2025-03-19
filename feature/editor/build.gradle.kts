@@ -50,5 +50,4 @@ dependencies {
   implementation(projects.appStrings)
   implementation(projects.core.settings)
   implementation(projects.core.utils)
-  implementation(projects.core.antlr4.java)
 }

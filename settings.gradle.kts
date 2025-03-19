@@ -26,13 +26,10 @@ include(":app-strings")
 
 include(":feature:treeview")
 include(":feature:editor")
-include(":feature:xmlviewer")
 include(":feature:apksigner")
 include(":feature:compiler")
-include(":feature:graphics:modeling")
 
 include(":core:ui:components")
 include(":core:utils")
-include(":core:antlr4:java")
 include(":core:settings")
 include(":core:database")

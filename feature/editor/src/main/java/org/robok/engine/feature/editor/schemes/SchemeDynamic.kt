@@ -28,14 +28,10 @@ import io.github.rosemoe.sora.widget.schemes.SchemeDarcula
 import org.robok.engine.feature.editor.R
 import org.robok.engine.res.ResUtils
 
-class SchemeRobok(context: Context) : SchemeDarcula() {
-
-  val context: Context
-  val resUtils: ResUtils
+class SchemeDynamic(private val context: Context) : SchemeDarcula() {
 
   init {
-    this.context = context
-    resUtils = ResUtils(context)
+    val resUtils = ResUtils(context)
 
     val primary = resUtils.getAttrColor(MaterialR.attr.colorPrimary)
     val surface = resUtils.getAttrColor(MaterialR.attr.colorSurface)

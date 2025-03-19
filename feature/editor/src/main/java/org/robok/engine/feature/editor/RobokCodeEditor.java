@@ -22,24 +22,24 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import io.github.rosemoe.sora.lang.EmptyLanguage;
 import io.github.rosemoe.sora.lang.diagnostic.DiagnosticDetail;
 import io.github.rosemoe.sora.lang.diagnostic.DiagnosticRegion;
 import io.github.rosemoe.sora.lang.diagnostic.DiagnosticsContainer;
 import io.github.rosemoe.sora.lang.diagnostic.Quickfix;
 import io.github.rosemoe.sora.widget.CodeEditor;
 import io.github.rosemoe.sora.widget.component.EditorAutoCompletion;
-import io.github.rosemoe.sora.widget.schemes.*;
+import io.github.rosemoe.sora.widget.schemes.SchemeGitHub;
+import io.github.rosemoe.sora.widget.schemes.SchemeEclipse;
+import io.github.rosemoe.sora.widget.schemes.SchemeDarcula;
+import io.github.rosemoe.sora.widget.schemes.SchemeVS2019;
+import io.github.rosemoe.sora.widget.schemes.SchemeNotepadXX;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import kotlin.io.FilesKt;
-import org.robok.engine.core.antlr4.java.*;
 import org.robok.engine.feature.editor.databinding.LayoutCodeEditorBinding;
-import org.robok.engine.feature.editor.languages.Language;
-import org.robok.engine.feature.editor.languages.java.*;
-import org.robok.engine.feature.editor.schemes.*;
+import Org.robok.engine.feature.editor.schemes.SchemeDynamic;
 
 public class RobokCodeEditor extends LinearLayout implements AntlrListener, EditorListener {
 
@@ -92,18 +92,8 @@ public class RobokCodeEditor extends LinearLayout implements AntlrListener, Edit
     getSoraCodeEditor().setTextSize(16);
     getSoraCodeEditor().setWordwrap(editorConfigManager.getEditorIsUseWordWrap());
 
-    if (getFileExtension().equals("java")) {
-      getSoraCodeEditor().setEditorLanguage(new JavaLanguage(this, diagnostics));
-      getSoraCodeEditor().getProps().symbolPairAutoCompletion = true;
-      getSoraCodeEditor().getComponent(EditorAutoCompletion.class).setEnabled(true);
-    } else {
-      getSoraCodeEditor().setEditorLanguage(new EmptyLanguage());
-    }
-
     getSoraCodeEditor()
         .setColorScheme(AppearanceManager.getTheme(this, editorConfigManager.getEditorTheme()));
-
-    if (getFileExtension().equals("java")) reloadListeners();
   }
 
   /*
@@ -113,17 +103,6 @@ public class RobokCodeEditor extends LinearLayout implements AntlrListener, Edit
     var fileName = getFile().getName();
     var extension = fileName.substring(fileName.lastIndexOf(".") + 1);
     return extension;
-  }
-
-  /*
-   * Method that provides the language based on the file extension.
-   * @return Language instance of correct language
-   */
-  private Language getLanguage() {
-    return switch (getFileExtension()) {
-      case "java" -> new JavaLanguage(this, diagnostics);
-      default -> null;
-    };
   }
 
   /*
@@ -173,14 +152,6 @@ public class RobokCodeEditor extends LinearLayout implements AntlrListener, Edit
                 null));
     diagnostics.addDiagnostic(diagnosticRegion);
     getSoraCodeEditor().setDiagnostics(diagnostics);
-  }
-
-  /*
-   * Method to reloadListeners Language config
-   */
-  public void reloadListeners() {
-    getLanguage().setEditorListener(editorListener);
-    getLanguage().setAntlrListener(antlrListener);
   }
 
   public void release() {
@@ -374,19 +345,17 @@ public class RobokCodeEditor extends LinearLayout implements AntlrListener, Edit
       var ctx = rcd.getSoraCodeEditor().getContext();
       switch (themeIndex) {
         case 1:
-          return new SchemeRobokTH(ctx);
-        case 2:
           return new SchemeGitHub();
-        case 3:
+        case 2:
           return new SchemeEclipse();
-        case 4:
+        case 3:
           return new SchemeDarcula();
-        case 5:
+        case 4:
           return new SchemeVS2019();
-        case 6:
+        case 5:
           return new SchemeNotepadXX();
         default:
-          return new SchemeRobok(ctx);
+          return new SchemeDynamic(ctx);
       }
     }
   }
