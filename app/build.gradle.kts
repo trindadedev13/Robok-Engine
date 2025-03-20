@@ -125,22 +125,17 @@ dependencies {
   implementation(libs.about.libraries.compose)
   implementation(libs.about.libraries.compose.m3)
 
-  implementation(libs.amix)
-
   // projects
   implementation(projects.appStrings)
 
   implementation(projects.feature.treeview)
   implementation(projects.feature.editor)
-  implementation(projects.feature.xmlviewer)
   implementation(projects.feature.compiler)
-  implementation(projects.feature.graphics.modeling)
-
+  
   implementation(projects.core.settings)
   implementation(projects.core.database)
   implementation(projects.core.ui.components)
   implementation(projects.core.utils)
-  implementation(projects.core.antlr4.java)
 }
 
 fun execAndGetOutput(vararg command: String): String {
