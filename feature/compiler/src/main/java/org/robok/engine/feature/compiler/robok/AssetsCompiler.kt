@@ -48,7 +48,7 @@ class AssetsCompiler(val context: Context, val projectPath: File) {
       val list = arrayListOf<String>()
       var pathToSave = File("")
 
-      FileUtil.listDir(projectPath.absolutePath + "/game/assets/texts/", list)
+      FileUtil.listDir(projectPath.absolutePath + "/game/src/assets/texts/", list)
       list.forEach {
         val file = File(it)
 
